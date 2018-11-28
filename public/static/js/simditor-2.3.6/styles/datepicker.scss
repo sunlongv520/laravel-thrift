@@ -1,0 +1,210 @@
+.simple-datepicker {
+  width: 200px;
+  background: #fff;
+  font-size: 12px;
+
+  a {
+    text-decoration: none;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  table td {
+    width: 24px;
+    line-height: 24px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .datepicker-header {
+    text-align: center;
+    padding-bottom: 8px;
+
+    .datepicker-prev,
+    .datepicker-next {
+      float: left;
+      font-size: 16px;
+      margin: 0 6px;
+      display: block;
+      color: #444;
+      &:hover {
+        color: #999;
+      }
+
+      > i {
+        font-style: normal;
+      }
+    }
+
+    .datepicker-next {
+      float: right;
+    }
+
+    .datepicker-title {
+      color: #333;
+      font-size: 14px;
+      display: inline-block;
+      padding-top: 2px;
+      &:hover {
+        color: #999;
+      }
+    }
+  }
+
+  table.calendar {
+    .datepicker-dow {
+      color: #999;
+    }
+
+    .datepicker-day a {
+      display: block;
+      height: 100%;
+      background: #f3f3f3;
+      color: #333;
+      border-bottom: 2px solid #fff;
+      -webkit-text-shadow: 0 1px 0 white;
+         -moz-text-shadow: 0 1px 0 white;
+              text-shadow: 0 1px 0 white;
+
+      &.today {
+        background: #ffe451;
+      }
+
+      &.others {
+        background: #fff;
+        color: #cccccc;
+      }
+
+      &:hover {
+        background: #cbe0ff;
+      }
+
+      &.selected {
+        background: #cce5f1;
+      }
+
+      &.disabled {
+        background: #fff;
+        color: #ccc;
+        cursor: default;
+      }
+    }
+    .datepicker-month a {
+      display: block;
+    }
+  }
+
+  .datepicker-yearmonth {
+    height: 0;
+    overflow: hidden;
+    transition: 200ms height;
+    -webkit-transition: 200ms height;
+
+    .datepicker-year-container {
+      float: left;
+      padding: 5px 0 0 0;
+      height: 80px;
+      width: 70px;
+      overflow: scroll;
+      
+      .datepicker-year-list {
+        padding: 0px;
+        margin: 0px;
+        width: 60px;
+        white-space: normal;
+        text-align: center;
+
+        .datepicker-year {
+          display: inline-block;
+          height: 20px;
+          width: 100%;
+          line-height: 20px;
+          vertical-align: middle;
+
+          a {
+            display: block;
+            height: 100%;
+            color: #333;
+            -webkit-text-shadow: 0 1px 0 white;
+            -moz-text-shadow: 0 1px 0 white;
+            text-shadow: 0 1px 0 white;
+            &.today {
+              background: #ffe451;
+            }
+            &.selected {
+              background: #cce5f1;
+            }
+            &:hover {
+              background: #cbe0ff;
+            }
+          }
+        }
+      }
+    }
+
+    .datepicker-month-container {
+      vertical-align: top;
+      margin-left: 70px;
+      height: 80px;
+      padding: 5px 0 0 0;
+
+      .datepicker-month-list {
+        padding: 0px;
+        margin: 0px;
+        white-space: normal;
+        text-align: center;
+
+        .datepicker-month {
+          display: inline-block;
+          height: 26px;
+          width: 25%;
+          line-height: 25px;
+          vertical-align: middle;
+
+          a {
+            display: block;
+            height: 100%;
+            color: #333;
+            -webkit-text-shadow: 0 1px 0 white;
+               -moz-text-shadow: 0 1px 0 white;
+                    text-shadow: 0 1px 0 white;
+            &.today {
+              background: #ffe451;
+            }
+            &.selected {
+              background: #cce5f1;
+            }
+            &:hover {
+              background: #cbe0ff;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.simple-monthpicker .datepicker-yearmonth {
+    height: auto;
+  }
+
+  &.expanded {
+    .datepicker-header {
+      box-shadow: 0 5px 5px -5px rgba(0, 0, 1, 0.2);
+      margin-bottom: 5px;
+    }
+
+
+    .datepicker-yearmonth {
+      height: 85px;
+    }
+
+    .calendar {
+      box-shadow: 0 -5px 5px -5px rgba(0, 0, 1, 0.2);
+      margin-top: 5px;
+    }
+  }
+}

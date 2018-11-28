@@ -1,0 +1,69 @@
+[2018-11-28 05:54:47] local.ERROR: exception 'ErrorException' with message 'ob_end_clean(): failed to delete buffer. No buffer to delete' in /mnt/win/workspace/laravel51-server/app/stats/Controllers/RpcController.php:27
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'ob_end_clean():...', '/mnt/win/worksp...', 27, Array)
+#1 /mnt/win/workspace/laravel51-server/app/stats/Controllers/RpcController.php(27): ob_end_clean()
+#2 [internal function]: Stats\Controllers\RpcController->index(Object(Illuminate\Support\Facades\Request))
+#3 /mnt/win/workspace/laravel51-server/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(256): call_user_func_array(Array, Array)
+#4 /mnt/win/workspace/laravel51-server/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(164): Illuminate\Routing\Controller->callAction('index', Array)
+#5 /mnt/win/workspace/laravel51-server/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(112): Illuminate\Routing\ControllerDispatcher->call(Object(Stats\Controllers\RpcController), Object(Illuminate\Routing\Route), 'index')
+#6 [internal function]: Illuminate\Routing\ControllerDispatcher->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#7 /mnt/win/workspace/laravel51-server/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(139): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#8 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#9 /mnt/win/workspace/laravel51-server/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#10 /mnt/win/workspace/laravel51-server/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(114): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#11 /mnt/win/workspace/laravel51-server/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(69): Illuminate\Routing\ControllerDispatcher->callWithinStack(Object(Stats\Controllers\RpcController), Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request), 'index')
+#12 /mnt/win/workspace/laravel51-server/vendor/laravel/framework/src/Illuminate/Routing/Route.php(203): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request), 'Stats\\Controlle...', 'index')
+#13 /mnt/win/workspace/laravel51-server/vendor/laravel/framework/src/Illuminate/Routing/Route.php(134): Illuminate\Routing\Route->runWithCustomDispatcher(Object(Illuminate\Http\Request))
+#14 /mnt/win/workspace/laravel51-server/vendor/laravel/framework/src/Illuminate/Routing/Router.php(708): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#15 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#16 /mnt/win/workspace/laravel51-server/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(139): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#17 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#18 /mnt/win/workspace/laravel51-server/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#19 /mnt/win/workspace/laravel51-server/vendor/laravel/framework/src/Illuminate/Routing/Router.php(710): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#20 /mnt/win/workspace/laravel51-server/vendor/laravel/framework/src/Illuminate/Routing/Router.php(675): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#21 /mnt/win/workspace/laravel51-server/vendor/laravel/framework/src/Illuminate/Routing/Router.php(635): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#22 /mnt/win/workspace/laravel51-server/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(236): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#23 [internal function]: Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#24 /mnt/win/workspace/laravel51-server/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(139): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#25 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#26 /mnt/win/workspace/laravel51-server/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#27 /mnt/win/workspace/laravel51-server/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(122): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#28 /mnt/win/workspace/laravel51-server/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(87): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#29 /mnt/win/workspace/laravel51-server/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#30 {main}  
+[2018-11-28 05:55:03] local.INFO: hello world !  
+[2018-11-28 05:55:12] local.INFO: hello world !  
+[2018-11-28 05:55:45] local.INFO: hello world !  
+[2018-11-28 05:55:46] local.INFO: hello world !  
+[2018-11-28 05:58:44] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Rpc\Test\EchopClient' not found' in /mnt/win/workspace/laravel51-server/app/stats/Controllers/RpcController.php:45
+Stack trace:
+#0 {main}  
+[2018-11-28 06:00:43] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Rpc\Test\EchopClient' not found' in /mnt/win/workspace/laravel51-server/app/stats/Controllers/RpcController.php:46
+Stack trace:
+#0 {main}  
+[2018-11-28 06:01:57] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Rpc\Test\EchopClient' not found' in /mnt/win/workspace/laravel51-server/app/stats/Controllers/RpcController.php:46
+Stack trace:
+#0 {main}  
+[2018-11-28 06:03:33] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Rpc\Test\EchopClient' not found' in /mnt/win/workspace/laravel51-server/app/stats/Controllers/RpcController.php:46
+Stack trace:
+#0 {main}  
+[2018-11-28 06:17:23] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Rpc\Test\EchopClient' not found' in /mnt/win/workspace/laravel51-server/app/stats/Controllers/RpcController.php:46
+Stack trace:
+#0 {main}  
+[2018-11-28 06:17:35] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Rpc\Test\EchopClient' not found' in /mnt/win/workspace/laravel51-server/app/stats/Controllers/RpcController.php:46
+Stack trace:
+#0 {main}  
+[2018-11-28 06:18:36] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Rpc\Test\EchopClient' not found' in /mnt/win/workspace/laravel51-server/app/stats/Controllers/RpcController.php:46
+Stack trace:
+#0 {main}  
+[2018-11-28 06:19:54] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Rpc\Test\EchopClient' not found' in /mnt/win/workspace/laravel51-server/app/stats/Controllers/RpcController.php:46
+Stack trace:
+#0 {main}  
+[2018-11-28 06:21:13] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Rpc\Test\EchopClient' not found' in /mnt/win/workspace/laravel51-server/app/stats/Controllers/RpcController.php:46
+Stack trace:
+#0 {main}  
+[2018-11-28 06:22:46] local.INFO: hello world !  
+[2018-11-28 06:23:48] local.INFO: hello world !  
+[2018-11-28 06:27:04] local.INFO: hello world !  
+[2018-11-28 06:27:21] local.INFO: hello world !  
+[2018-11-28 06:27:27] local.INFO: hello world !  

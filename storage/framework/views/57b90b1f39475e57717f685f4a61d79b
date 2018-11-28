@@ -1,0 +1,128 @@
+<style>
+    span.layui-nav-bar{display: none}
+
+    .badge.bg-warning {
+        background: #FCB322;
+    }
+    .badge {
+        display: inline-block;
+        min-width: 10px;
+        padding: 3px 7px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1;
+        vertical-align: baseline;
+        white-space: nowrap;
+        text-align: center;
+        background-color: #999;
+        border-radius: 10px;
+    }
+    .dignding{
+         position:relative;color:#666666; background:#f6f6f6; padding:4px 8px; margin-right:15px; border-radius:50%; -webkit-border-radius:50%; padding-right:8px !important;
+     }
+</style>
+<div class="layui-layout layui-layout-admin" style="">
+    <div class="layui-header header header-demo">
+        <div class="layui-main">
+            <div class="admin-login-box">
+                <div style="background-color:#3296ff; width:200px; height:60px;position:absolute; left:-15px;"></div>
+                <a href="/" class="logo" style="position:absolute; left:20px; top:16px;">
+                    <img style="width:120px;" src="/static/images/gege_village.png" alt="" width="100px">
+                </a>
+                <div class="admin-side-toggle">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+                <div class="admin-side-full">
+                    <i  class="fa fa-refresh" aria-hidden="true"></i>
+                </div>
+            </div>
+            <ul class="layui-nav admin-header-item">
+                <?php /*<li class="layui-nav-item">*/ ?>
+                    <?php /*<a href="javascript:;">清除缓存</a>*/ ?>
+                <?php /*</li>*/ ?>
+                <li id="header_notification_bar" class="layui-nav-item" style="line-height: 15px;    background-color:#fff">
+                    <a onclick="gotoUrl('消息中心','/notification','fa fa-bell-o')" href="javascript:void(0);" aria-expanded="false" style="padding:4px 8px; margin-right:15px; border-radius:50%; -webkit-border-radius:50%; padding-right:8px !important;" class="dignding">
+                        <i class="fa fa-bell-o"></i>
+                        <span class="badge bg-warning" style="position: absolute; right: -15px; top: -7px; z-index: 100;"></span>
+                    </a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;" class="admin-header-user">
+                        <img src="/static/newhtml/images/0.jpg" />
+                        <span><?php echo e(auth()->user()->realname); ?></span>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a id="editpassword" href="javascript:;"><i class="fa fa-gear" aria-hidden="true"></i> 修改密码</a>
+                        </dd>
+
+                        <dd>
+                            <a href="/auth/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var user_id = '<?php echo e(auth()->user()->id); ?>';
+        if(typeof(window.localStorage.unread_msg_data) == "undefined"){
+            window.localStorage.unread_msg_data = JSON.stringify({'user_id' : 0,'unread_msg_cnt' : 0,'updated_at' : Date.parse(new Date()) / 1000 });
+        }
+        var unread_msg_data = JSON.parse(window.localStorage.unread_msg_data);
+        setTimeout(getUnreadMsgCnt, 500);
+
+        //获取未读消息
+        function getUnreadMsgCnt(){
+            unread_msg_data = JSON.parse(window.localStorage.unread_msg_data);
+            //本地存储非当前登录人、存储失效、记数异常时重新同步数据
+            if(unread_msg_data.user_id != user_id || (Date.parse(new Date()) / 1000) - unread_msg_data.updated_at > 300 || unread_msg_data.unread_msg_cnt < 0){
+                syncDataFromServer();
+            }
+            showMsgCnt();
+            //轮询未读消息
+            setTimeout(getUnreadMsgCnt, 5000);
+        }
+
+        //从服务器同步数据
+        function syncDataFromServer(){
+            $.post(
+                    '<?php echo route('notification.getUnreadMsgCnt'); ?>',
+                    {},
+                    function (res) {
+                        if (res.status == 0) {
+                            unread_msg_data = {'user_id' : user_id,'unread_msg_cnt' : parseInt(res.data.count),'updated_at' : Date.parse(new Date()) / 1000 };
+                            window.localStorage.unread_msg_data = JSON.stringify(unread_msg_data);
+                        } else {
+                            console.log(res.msg);
+                        }
+                    }
+            );
+        }
+
+        //图标显示未读消息数
+        function showMsgCnt(){
+            if (unread_msg_data.unread_msg_cnt == 0) {
+                $('#header_notification_bar .badge').text('');
+                $(".badge").hide();
+            } else {
+                $('#header_notification_bar .badge').text(unread_msg_data.unread_msg_cnt);
+                $(".badge").show();
+            }
+        }
+
+        //减少本地存储的未读消息数
+        function delMsgCntStorage(num){
+            alert(1);return;
+            unread_msg_data = {'user_id' : user_id,'unread_msg_cnt' : unread_msg_data.unread_msg_cnt - num,'updated_at' : Date.parse(new Date()) / 1000 };
+            window.localStorage.unread_msg_data = JSON.stringify(unread_msg_data);
+        }
+
+        //清空本地未读消息数
+        function clearMsgCntStorage(){
+            unread_msg_data = {'user_id' : user_id,'unread_msg_cnt' : 0,'updated_at' : Date.parse(new Date()) / 1000 };
+            window.localStorage.unread_msg_data = JSON.stringify(unread_msg_data);
+        }
+
+    </script>

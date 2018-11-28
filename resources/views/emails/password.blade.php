@@ -1,0 +1,1 @@
+<a href="{{ url('auth/getReset/'.$token) }}">点击这里重置密码</a>

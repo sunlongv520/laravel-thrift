@@ -1,0 +1,7 @@
+<div id="sidebar" class="nav-collapse">
+    <!-- sidebar menu start-->
+    <div class="leftside-navigation">
+        <?php echo Menu::render(); ?>
+
+    </div>
+</div>

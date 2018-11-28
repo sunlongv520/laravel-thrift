@@ -1,0 +1,23 @@
+<ul class="sidebar-menu" id="nav-accordion">
+    <li>
+        <a href="/dashboard">
+            <i class="fa fa-dashboard"></i>
+            <span>主页</span>
+        </a>
+    </li>
+    <?php foreach($items as $key => $value): ?>
+        <?php if(!$value['children']->isEmpty()): ?>
+            <li class="sub-menu" data-group="<?php echo e($value['group']); ?>">
+                <a href="javascript:;">
+                    <i class="fa <?php echo e($value['icon']); ?>"></i>
+                    <span><?php echo e($value['label']); ?></span>
+                </a>
+                <ul class="sub" style="display: none;">
+                    <?php foreach($value['children'] as $key => $value): ?>
+                        <li><a href="<?php echo e(action('\\' . $value['action'], $value['params'])); ?>"><?php echo e($value['label']); ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
+            </li>
+        <?php endif; ?>
+    <?php endforeach; ?>
+</ul>

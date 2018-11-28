@@ -1,0 +1,19 @@
+<?php /**/ ?>
+<?php /*<?php $__env->startSection('static_f'); ?>*/ ?>
+<?php /*<!--jQuery Flot Chart-->*/ ?>
+<?php /*<script src="/static/js/flot-chart/jquery.flot.js"></script>*/ ?>
+<?php /*<script src="/static/js/flot-chart/jquery.flot.time.js"></script>*/ ?>
+<?php /*<script src="/static/js/flot-chart/jquery.flot.tooltip.min.js"></script>*/ ?>
+<?php /*<script src="/static/js/flot-chart/jquery.flot.resize.js"></script>*/ ?>
+<?php /*<script src="/static/js/flot-chart/jquery.flot.pie.resize.js"></script>*/ ?>
+<?php /*<script src="/static/js/flot-chart/jquery.flot.animator.min.js"></script>*/ ?>
+<?php /*<script src="/static/js/flot-chart/jquery.flot.growraf.js"></script><?php $__env->stopSection(); ?>*/ ?>
+
+<?php /*<?php $__env->startSection('content'); ?>*/ ?>
+    <?php /*hello*/ ?>
+<?php /*<?php $__env->stopSection(); ?>*/ ?>
+
+
+
+<?php echo $__env->make('layoutsnew.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

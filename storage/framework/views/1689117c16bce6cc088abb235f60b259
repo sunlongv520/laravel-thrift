@@ -1,0 +1,63 @@
+<?php $__env->startSection('content'); ?>
+    <div class="row">
+        <div class="col-sm-12">
+            <?php if(count($errors) > 0): ?>
+                <div class="alert alert-danger">
+                    <ul>
+                        <?php foreach($errors->all() as $error): ?>
+                            <li><?php echo e($error); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
+            <section class="panel">
+                <form method="POST" action="<?php echo e(route('admin.roles.addperssion')); ?>" accept-charset="UTF-8" class="form-horizontal">
+                    <?php /*<input type="hidden" name="action" value="adding" />*/ ?>
+                    <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>" />
+                    <input type="hidden" name="rid" value="<?php echo e($items->id); ?>" />
+                <header class="panel-heading">
+                    <h4>
+                        角色：<?php echo e($items->description); ?>
+
+                        <span class="tools pull-right">
+                        <button type="submit" class="btn btn-primary mini">保存</button>
+                     </span>
+                    </h4>
+                </header>
+                <div class="panel-body form-inline wht-bg">
+                    <div class="container" style="width: 80%;margin: 0 auto">
+                        <?php foreach($permissions as $k=>$v): ?>
+                        <table class="table table-bordered table-striped" style=" margin-bottom: 20px;width:100%">
+                            <thead>
+                            <tr><th style="width:20px;"><input type="checkbox"></th>
+                                <th><?php echo e($k); ?></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach($v as $item): ?>
+                            <tr class="">
+                                <td><input name="ids[]" <?php if(in_array($item['id'],$userHasRoles)): ?> checked="checked" <?php endif; ?> type="checkbox" value="<?php echo e($item['id']); ?>"></td>
+                                <td><?php echo e($item['description']); ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                        <?php endforeach; ?>
+                        <script src="/static/js/jquery.tableCheckbox.js"></script>
+                        <script>
+                            $('table').tableCheckbox({ /* options */ });
+                        </script>
+                    </div>
+                </div>
+                </form>
+            </section>
+        </div>
+    </div>
+    <style>
+        .table{
+            margin-bottom: 20px;
+        }
+    </style>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
