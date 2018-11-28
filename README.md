@@ -15,7 +15,9 @@ E:\workspace\laravel51-server\app\services\EchopServie.php
 
 
 namespace Services;
+
 use Rpc\Test\EchopIf;
+
  
 class EchopServie implements EchopIf{
     public function Echop($str){
@@ -28,6 +30,7 @@ class EchopServie implements EchopIf{
 3，编写服务端和客户端：
 
 Route::post('/rpc/index', 'RpcController@index')->name('rpc.index');
+
 Route::get('/rpc/test', 'RpcController@test')->name('rpc.test');
 
 
