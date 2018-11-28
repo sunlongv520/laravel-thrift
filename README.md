@@ -13,7 +13,7 @@ thrift -r --out ./app --gen php:server ./ThriftSource/testServer.thrift
 E:\workspace\laravel51-server\app\services\EchopServie.php
 
 
-<?php
+
 namespace Services;
 use Rpc\Test\EchopIf;
  
